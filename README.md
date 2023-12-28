@@ -25,7 +25,15 @@ To build a coffeeshop.
 
 ### Potential Features To Include
 
-- 
+- User registration and profile.
+
+- A coffee and tea catalogue with images and well organized.
+
+- Product search and filter to help users to find easily specific products.
+
+- Shopping cart.
+
+- Promotions and discounts.
 
 ## UX AIMS
 
