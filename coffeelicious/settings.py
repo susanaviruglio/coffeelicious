@@ -87,6 +87,19 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 
+"""By default allauth will send confirmation email to any new account so I have to
+temporarily log those emails to the console so we can get the confirmation links"""
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email' #use email or username
+ACCOUNT_EMAIL_REQUIRED = True #an email is required to register on the site
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory' #same
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True #same
+ACCOUNT_USERNAME_MIN_LENGTH = 4  #minimun user length of 4 characters
+LOGIN_URL = '/accounts/login/' #specifying a login url 
+LOGIN_REDIRECT_URL = '/' # an url to redirect back to after logging in.
+
 WSGI_APPLICATION = 'coffeelicious.wsgi.application'
 
 
