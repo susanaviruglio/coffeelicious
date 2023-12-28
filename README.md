@@ -204,5 +204,11 @@ Now that you have your database and code in your IDE configured, we will add it 
 ## CREDITS
 All the code that I have used to create this website was taken from Code Institute learning platform and from the next following sources:
 
-[MATERIALIZE](https://materializecss.com/)
+[BOOTSTRAP](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
 
+## EXTRA INFORMATION 
+
+I created a directory templates allauth because I will customize the allauth templates in my own allauth, so this ensure that our templates take precedence over the built ones.
+
+This gives us a copy of every single Allauth template so we can customize them at will.
+I may delete openid and tests*
