@@ -1,110 +1,200 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Coffeelicious
+## Full Stack Frameworks with Django Milestone Project by Susana Viruglio
 
-Welcome USER_NAME,
+To build a coffeeshop.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+(IMAGE)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
 
-## Gitpod Reminders
+### External User Goals
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+- Easily find coffee or similar drink through the coffee shop's products.
 
-`python3 -m http.server`
+- Provide categories and filter products to help users find specific type of coffee, tea, etc.
 
-A blue button should appear to click: _Make Public_,
+- Detail information about each item.
 
-Another blue button should appear to click: _Open Browser_.
+- Users may wish to create an account to improve their experience by allowing registration.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- Provide a shopping cart visible and easy to access; easy to delete, to add or modify.
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+### Site Owner's Goals
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- To maximize profitability by creating a web which makes the website more attractive for customers.
 
-To log into the Heroku toolbelt CLI:
+### Potential Features To Include
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+- 
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## UX AIMS
 
-------
+- As a shopper I would like to be able to view a list of coffee products, so I can select some to purchase.
 
-## Release History
+- Clicking on an individual product, so I am able to view product details and identify the price, product description, product rating, product image.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+- A navigation menu that allows users to identify deals or special offers.
 
-**September 20 2023:** Update Python version to 3.9.17.
+- Create an user account which allows to make purchases.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+## USERS STORIES
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+1. **How can create an user account?** I would like to create an account and log in so I am able to save all my bank details the next time I wish to do another purchase.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+2. **I would like to buy coffee but I do not want to create an account** It is possible to make purchases as a guest in this store.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+3. **Where can I found special offers?** In the navigation menu allows users to be able to see easily offers or special deals.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+4. **Where am I able to see how much I spend in total?** A real shopping indicator that allows users to view total amount of the purchase at any time ir order to avoid spending too much.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+5. **I have forgotten my password** Reset the users'password if the have forgotten.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+## DESIGN EVOLUTION
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+## TESTING 
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+## DEPLOYMENT
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### Github
 
-------
+This project is deployed using GitHub pages using the following process:
 
-## FAQ about the uptime script
+**Deploying a GitHub Repository via GitHub Pages**
 
-**Why have you added this script?**
+1. In your Repository section, select the Repository you wish to deploy.
+2. In the top horizontal Menu, locate and click the Settings link.
+3. Inside the Setting page, around halfway down locate the GitHub Pages Section.
+4. Under Source, select the None tab and change it to Master and click Save.
+5. Finally once the page resets scroll back down to the GitHub Pages Section to see the following message *"Your site is ready to be published at (Link to the GitHub Page Web Address)"*. It can take time for the link to open your project initially, so please don't be worried if it down not load immediately.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+**Forking the Github Repository**
 
-**How will this affect me?**
+You can fork a GitHub Repository to make a copy of the original repository to view or make changes without it affecting the original repository.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+- Find the GitHub repository.
+- At the top of the page to the right, under your account, click the Fork button.
+- You will now have a copy of the repository in your GitHub account.
+  
+**Making a Local Clone**
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+1. Find the GitHub Repository.
+2. Click the Code button
+3. Copy the link shown.
+4. In Gitpod, change the directory to the location you would like the cloned directory to be located.
+5. Type git clone, and paste the link you copied in step 
+6. Press Enter to have the local clone created.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+[Web link once deployed](LINK)
+### HEROKU and ELEPHANTSQL
+Deploying a Python application on Heroku involves several steps. Here's a general guide:
+If you don't have a Heroku account, sign up for one at Heroku's website.
+1. Create an account with ElephantSQL
+2. Authorise ElephantSQL with your selected GitHub account
+3. In the Create new team form:
+   - Add a team name (your own name is fine)
+   - Read and agree to the Terms of Service
+   - Select Yes for GDPR
+   - Provide your email address
+   - Click “Create Team”
+4. Your account is successfully created!
+Create a database
+5. Click “Create New Instance”
+6. Set up your plan (give a name, select the tiny turtle plan and Irish region)
+7. Select data center near you (Ireland)
+8. Then, click Review
+9. Check your details are correct and then click “Create instance”
+10. Return to the ElephantSQL dashboard and click on the database instance name for this project
+11. In the URL section, clicking the copy icon will copy the database URL to your clipboard
+12. Leave this tab open, we will come back here later
 
-**So….?**
+Before we can build our application on Heroku, we need to create a few files that Heroku will need to run our application:
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+- A requirements.txt file which contains a list of the Python dependencies that our project needs in order to run successfully.
 
-**Can I opt out?**
+- A Procfile which contains the start command to run the project.
+**Process**
+1. Generate the requirements.txt file with the following command in the terminal. After you run this command a new file called requirements.txt should appear in your root directory
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+ pip freeze --local > requirements.txt
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+2. Heroku requires a Procfile containing a command to run your program. Inside the root directory of your project create the new file. It must be called Procfile with a capital P, otherwise Heroku won’t recognise it
 
-**Anything more?**
+3. Inside the file, add the following command:
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+ web: python run.py
 
----
+4. Open your init file
 
-Happy coding!
+5. Add an if statement before the line setting the SLQALCHEMY_DATABASE_URI and, in the else, set the value to reference a new variable, DATABASE_URL.
+
+ app = Flask(__name__)
+ app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
+
+ if os.environ.get("DEVELOPMENT") == "True":
+     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
+ else:
+     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+
+6. To ensure that SQLAlchemy can also read our external database, its URL needs to start with “postgresql://”, but we should not change this in the environment variable. Instead, we’ll make an addition to our else statement from the previous step to adjust our DATABASE_URL in case it starts with postgres://:
+
+ if os.environ.get("DEVELOPMENT") == "True":
+     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
+ else:
+     uri = os.environ.get("DATABASE_URL")
+     if uri.startswith("postgres://"):
+         uri = uri.replace("postgres://", "postgresql://", 1)
+     app.config["SQLALCHEMY_DATABASE_URI"] = uri
+7. Save all your files and then add, commit and push your changes to GitHub
+
+**Heroku process**
+
+Now that you have your database and code in your IDE configured, we will add it to a Heroku app using a new environment variable (Config Var) called DATABASE_URL. Then our Heroku app will be able to connect to the external database.
+
+1. Log into Heroku.com and click “New” and then “Create a new app”
+2. Choose a unique name for your app, select the region closest to you and click “Create app”
+3. Go to the Settings tab of your new app
+4. Click Reveal Config Vars
+5. Return to your ElephantSQL tab and copy your database URL
+6. Back on Heroku, add a Config Var called DATABASE_URL and paste your ElephantSQL database URL in as the value. Make sure you click “Add”
+7. Add each of your other environment variables except DEVELOPMENT and DB_URL from the env.py file as a Config Var. The result should look something like this:
+<img src= bookmanager/static/images/heroku-env-vars.png>
+
+**Deploy the app**
+
+1. Navigate to the “Deploy” tab of your app
+2. In the Deployment method section, select “Connect to GitHub”
+3. Search for your repo and click Connect
+4. Optional: You can click Enable Automatic Deploys in case you make any further changes to the project. This will trigger any time code is pushed to your GitHub repository.
+5. As we already have all our changes pushed to GitHub, we will use the Manual deploy section and click Deploy Branch. This will start the build process. 
+6. Now, we have our project in place, and we have an empty database ready for use. As you may remember from our local development, we still need to add our tables to our database. To do this, we can click the “More” button and select “Run console”.
+7. Type python3 into the console and click Run
+8. This opens the Python terminal, in the same way as it would if we typed python3 into the terminal within our IDE. Let’s now create the tables with the commands we used before.
+9. Exit the Python terminal, by typing exit() and hitting enter, and close the console. Our Heroku database should now have the tables and columns created from our models.py file.
+
+## HTML AND CSS VALIDATOR
+### HTML
+
+
+### CSS
+
+
+### JAVASCRIPT
+
+
+
+
+### PYTHON
+
+
+### LIGHTHOUSE
+
+
+## CREDITS
+All the code that I have used to create this website was taken from Code Institute learning platform and from the next following sources:
+
+[MATERIALIZE](https://materializecss.com/)
+
