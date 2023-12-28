@@ -46,7 +46,7 @@ To build a coffeeshop.
 - Create an user account which allows to make purchases.
 
 
-## USERS STORIES
+
 
 1. **How can create an user account?** I would like to create an account and log in so I am able to save all my bank details the next time I wish to do another purchase.
 
