@@ -42,6 +42,12 @@ a > #image {
     color:#e9dfb8;
     font-family: 'Lato';
 }
+
+/* navigation bar icon for small devices*/
+.navbar-light .navbar-toggler {
+    background-color:#e9dfb8;
+}
+
 /* font color for icons in navigation bar ends here */
 
 /* from Bulma it makes sure all font awesome icons stay in the center*/
@@ -95,6 +101,9 @@ a > #image {
     border: 1px solid black !important;
 }
 
+.bg-black {
+    background: #e9dfb8 !important;
+}
 
 /* -------------------------------- Media Queries */
 
