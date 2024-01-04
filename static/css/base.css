@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "indie";
+    src: url("../fonts/indie-flower.ttf") format("truetype");
+  }
+
 html {
     height: 100%;
 }
@@ -50,6 +55,9 @@ a > #image {
 
 .logo-font {
     text-transform: uppercase;
+    font-family:'indie', 'Lato';
+     /* taken from https://www.w3schools.com/cssref/css3_pr_text-shadow.php*/
+    text-shadow: 2px 2px 4px #e9dfb8;
 }
 
 .main-logo-link {
