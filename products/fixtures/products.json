@@ -1,0 +1,282 @@
+[
+    {
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "sku": "BB05012024",
+            "name": "Whole Bean Brazil",
+            "description": "Treat yourself to the luxurious taste of our Premium Brazilian Whole Bean Coffee and elevate your daily coffee ritual to a gourmet experience. Immerse yourself in the flavors of Brazil with each cup – an unforgettable journey for true coffee enthusiasts.",
+            "price": 8.99,
+            "category": 1,
+            "rating": 4.6,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/beans-brazil.jpg?raw=true",
+            "image": "beans-brazil.jpg"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "sku": "BC05012024",
+            "name": "Whole Bean Colombia",
+            "description": "Elevate your coffee experience with the refined taste of Colombian Excelso Whole Bean Coffee. Immerse yourself in the elegance and sophistication of Colombian coffee culture, and savor each moment with a cup that embodies the essence of high-altitude perfection.",
+            "price": 8.99,
+            "category": 1,
+            "rating": 4.6,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/beans-colombia.jpg?raw=true",
+            "image": "beans-colombia.jpg"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+            "sku": "BG05012024",
+            "name": "Premium Whole Bean Guatemala",
+            "description": "Elevate your coffee ritual with the exquisite taste of Guatemalan Antigua Whole Bean Coffee. Experience the elegance and complexity of this exceptional brew, a true reflection of the volcanic terroir that makes Guatemalan coffee truly unique.",
+            "price": 10.99,
+            "category": 1,
+            "rating": 4.7,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/beans-guatemala.jpg?raw=true",
+            "image": "beans-guatemala.jpg"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.product",
+        "fields": {
+            "sku": "DE05012024",
+            "name": "Espresso Dark Roast 250g",
+            "description": "This espresso is part of our history — the same beloved blend we've been serving in our stores since we handcrafted the very first Coffeelicious latte. Much has changed since then, but we still feel that nothing beats this rich blend of high-grown beans. It reaches its flavourful zenith through a longer roast to achieve a dark, caramelly sweetness. This espresso blend brews up a rich, satisfying cup.",
+            "price": 9.99,
+            "category": 2,
+            "rating": 3,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/dark-espresso.jpg?raw=true",
+            "image": "dark-espresso.jpg"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+            "sku": "DED05012024",
+            "name": "Decaf Espresso Dark Roast 250g",
+            "description": "This decaf espresso blend brews up a rich, satisfying cup.",
+            "price": 5.99,
+            "category": 2,
+            "rating": 5,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/dark-espresso-decaf.jpg?raw=true",
+            "image": "dark-espresso-decaf.jpg"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.product",
+        "fields": {
+            "sku": "DS05012024",
+            "name": "Sumatra Dark Roast 250g",
+            "description": "It's big and bold with distinctive earthy aroma and lingering low notes. The heavy, full body and concentrated herbal spice notes are hallmarks of great coffee from Sumatra and the pride of our most seasoned roasters.",
+            "price": 7.99,
+            "category": 2,
+            "rating": 4.7,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/dark-sumatra.jpg?raw=true",
+            "image": "dark-sumatra.jpg"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.product",
+        "fields": {
+            "sku": "DV05012024",
+            "name": "Caffé Verona Dark Roast 250g",
+            "description": "A passion for the culinary romance of Italy inspired this seductive, full-bodied blend of Latin American and Asia/Pacific coffees, with Italian Roast added for depth. It's rich and well-balanced with a dark cocoa texture and a roasty sweetness.",
+            "price": 12.99,
+            "category": 2,
+            "rating": 4.4,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/dark-verona.jpg?raw=true",
+            "image": "dark-verona.jpg"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.product",
+        "fields": {
+            "sku": "MCN05012024",
+            "name": "Colombia Nariño Medium Roast 250g",
+            "description": "Complex and elegant, medium-bodied with a juicy acidity, herbal notes and a walnut-like finish.",
+            "price": 6.99,
+            "category": 3,
+            "rating": 4.5,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/medium-colombia-narino.jpg?raw=true",
+            "image": "medium-colombia-narino.jpg"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.product",
+        "fields": {
+            "sku": "ME05012024",
+            "name": "Ethiopia Medium Roast 250g",
+            "description": "With a velvety soft texture and floral, peppery spice notes, this is our tribute to the birthplace of coffee.",
+            "price": 9.99,
+            "category": 3,
+            "rating": 4.7,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/medium-ethiopia.jpg?raw=true",
+            "image": "medium-ethiopia.jpg"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.product",
+        "fields": {
+            "sku": "MGA05012024",
+            "name": "Guatemala Antigua Medium Roast 250g",
+            "description": "This coffee is rich and multidimensional, with a flavour that's consistent, cup after cup - lemon, chocolate and soft spice notes with an elegant mouthfeel unique to this region.",
+            "price": 10.99,
+            "category": 3,
+            "rating": 4.4,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/medium-guatemala-antigua.jpg?raw=true",
+            "image": "medium-guatemala-antigua.jpg"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.product",
+        "fields": {
+            "sku": "MGC05012024",
+            "name": "Guatemala Casi Cielo 2024",
+            "description": "Embark on a celestial journey with our Guatemala Casi Cielo 2024 Special Reserve Medium Roast Coffee 250g – an extraordinary blend that transcends the ordinary and reaches for the stars. Sourced from the high-altitude farms nestled beneath the towering peaks of Guatemala's majestic volcanoes, this limited edition coffee promises a taste that ascends to new heights of richness and complexity.",
+            "price": 12.99,
+            "category": 3,
+            "rating": 4.4,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/medium-guatemala-cielo.jpg?raw=true",
+            "image": "medium-guatemala-cielo.jpg"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.product",
+        "fields": {
+            "sku": "MH05012024",
+            "name": "House Blend Medium Roast 250g",
+            "description": "It's a hospitable blend of the finest Latin American beans that we've been offering to coffee lovers since the very beginning.",
+            "price": 7.99,
+            "category": 3,
+            "rating": 3,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/medium-houseblend.jpg?raw=true",
+            "image": "medium-houseblend.jpg"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.product",
+        "fields": {
+            "sku": "MK05012024",
+            "name": "Kenya Medium Roast 250g",
+            "description": "Big and juicy with complex layers of blackcurrant, fresh blackberry and even tart grapefruit. It's a refreshing, delicious cup like no other.",
+            "price": 7.99,
+            "category": 3,
+            "rating": 3.2,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/medium-kenya.jpg?raw=true",
+            "image": "medium-kenya.jpg"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "products.product",
+        "fields": {
+            "sku": "MP05012024",
+            "name": "Pike Place Medium Roast 250g",
+            "description": "In 1971 we opened our first store in Seattle's Pike Place Market. Reflecting on our heritage inspired us to create this delicious blend with smooth body and subtle flavours of cocoa and toasted nuts.",
+            "price": 6.99,
+            "category": 3,
+            "rating": 4.7,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/medium-pikeplace.jpg?raw=true",
+            "image": "medium-pikeplace.jpg"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "products.product",
+        "fields": {
+            "sku": "MC05022024",
+            "name": "Reusable Hot Mug Friends Style",
+            "description": "With a generous capacity that accommodates your preferred amount of coffee or tea, this mug is ideal for leisurely mornings, afternoon chats, or winding down in the evening. Enjoy your favorite beverage with a touch of friendship, sip after sip.",
+            "price": 15.99,
+            "category": 4,
+            "rating": 4.8,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/mug-coffee.jpg?raw=true",
+            "image": "mug-coffee.jpg"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "products.product",
+        "fields": {
+            "sku": "ML05022024",
+            "name": "Reusable Hot Mug Coffeelicious Heart Style",
+            "description": "Embrace the cozy moments of your daily coffee ritual with our 'Heartfelt Brew' Coffee Logo Mug, a charming vessel designed to infuse each sip with warmth and love.",
+            "price": 14.99,
+            "category": 4,
+            "rating": 4.4,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/mug-logo.jpg?raw=true",
+            "image": "mug-logo.jpg"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "products.product",
+        "fields": {
+            "sku": "MR05022024",
+            "name": "Reusable Hot Mug Rainbow Coffeelicious Style",
+            "description": "Embrace the spirit of joy with a fun and uplifting quote that's cleverly integrated into the design. Whether it's a witty coffee pun, a motivational message, or a playful quip, the quote adds an extra layer of cheer to your coffee-drinking experience.",
+            "price": 12.99,
+            "category": 4,
+            "rating": 4.4,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/mug-rainbow.jpg?raw=true",
+            "image": "mug-rainbow.jpg"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "products.product",
+        "fields": {
+            "sku": "MS05022024",
+            "name": "Reusable Hot Mug Sarcasm Loading... Style",
+            "description": " As you enjoy your drink, let the world know that your sarcasm levels are on the rise. The bold black and white design adds an edgy and contemporary touch to your mug collection.",
+            "price": 9.99,
+            "category": 4,
+            "rating": 4.8,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/mug-sarcasm.jpg?raw=true",
+            "image": "mug-sarcasm.jpg"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "products.product",
+        "fields": {
+            "sku": "TM05032024",
+            "name": "Men Coffelicious T-shirt",
+            "description": "Made from a high-quality blend of cotton, this t-shirt offers a luxurious feel against your skin. The fabric is not only comfortable but also breathable, making it an excellent choice for those coffee-fueled adventures or leisurely afternoons at your favorite café.",
+            "price": 35.99,
+            "category": 5,
+            "rating": 5,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/tshirt-man.jpg?raw=true",
+            "image": "tshirt-man.jpg"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "products.product",
+        "fields": {
+            "sku": "TW05032024",
+            "name": "Woman Coffeelicious T-shirt",
+            "description": "Made from a high-quality blend of cotton, this t-shirt offers a luxurious feel against your skin. The fabric is not only comfortable but also breathable, making it an excellent choice for those coffee-fueled adventures or leisurely afternoons at your favorite café.",
+            "price": 35.99,
+            "category": 5,
+            "rating": 5,
+            "image_url": "https://github.com/susanaviruglio/coffeelicious/blob/main/media/tshirt-woman.jpg?raw=true",
+            "image": "tshirt-woman.jpg"
+        }
+    }
+]
