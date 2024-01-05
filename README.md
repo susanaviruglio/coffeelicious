@@ -206,6 +206,14 @@ All the code that I have used to create this website was taken from Code Institu
 
 [BOOTSTRAP](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
 
+[UNPLUSH](https://unsplash.com/photos/brown-and-blue-plastic-pack-mSjTAV7JuV4)
+Coffee images were taken from this free Unplush but I modified the logo for each type of coffee.
+
+[LOGO MAKER](https://www.adobe.com/express/create/logo)
+Logo design for each coffee were taken from this free source and I pasted on the coffee bag.
+
+
+
 ## EXTRA INFORMATION 
 
 I created a directory templates allauth because I will customize the allauth templates in my own allauth, so this ensure that our templates take precedence over the built ones.
