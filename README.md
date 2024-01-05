@@ -205,6 +205,7 @@ Now that you have your database and code in your IDE configured, we will add it 
 All the code that I have used to create this website was taken from Code Institute learning platform and from the next following sources:
 
 [BOOTSTRAP](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
+HTML 
 
 [UNPLUSH](https://unsplash.com/photos/brown-and-blue-plastic-pack-mSjTAV7JuV4)
 Coffee images were taken from this free Unplush but I modified the logo for each type of coffee.
@@ -212,7 +213,8 @@ Coffee images were taken from this free Unplush but I modified the logo for each
 [LOGO MAKER](https://www.adobe.com/express/create/logo)
 Logo design for each coffee were taken from this free source and I pasted on the coffee bag.
 
-
+[STARBUCKS](https://www.starbucks.co.uk/menu/at-home/whole-bean)
+Coffee information and product structure and category names.
 
 ## EXTRA INFORMATION 
 
