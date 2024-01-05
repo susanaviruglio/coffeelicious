@@ -216,6 +216,9 @@ Logo design for each coffee were taken from this free source and I pasted on the
 [STARBUCKS](https://www.starbucks.co.uk/menu/at-home/whole-bean)
 Coffee information and product structure and category names.
 
+[TEXTFIXER](https://www.textfixer.com/tools/paragraph-to-lines.php)
+Paragraph converter for the json file.
+
 ## EXTRA INFORMATION 
 
 I created a directory templates allauth because I will customize the allauth templates in my own allauth, so this ensure that our templates take precedence over the built ones.
