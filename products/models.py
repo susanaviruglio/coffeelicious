@@ -5,8 +5,13 @@ class Category(models.Model):
     """Fixtures goes into this model, I have created Categories names to organize 
     each product in different sections"""
 
+    class Meta:
+        """meta class added to correct spelling mistake in django befores was categorys"""
+        verbose_name_plural = 'Categories'
+
     # character field which represents the product
     name = models.CharField(max_length=254) 
+    
     # friendly name for the user to identify each category
     friendly_name = models.CharField(max_length=254, null=True, blank=True) 
 
