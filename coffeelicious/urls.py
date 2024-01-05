@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')), #  This path gives us all the urls I need for login logout password resets and so on.
     path('', include('home.urls')), # To view home directory
+    path('products/', include('products.urls')), # to view products 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
