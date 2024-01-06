@@ -108,6 +108,37 @@ a > #image {
     border: 1px solid black !important;
 }
 
+/* products main section starts here*/
+
+.cover-background {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: #e9dfb8;
+	z-index: -1;
+}
+
+#product-text{
+    color: #202020;
+    font-family: 'Lato';
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px #e9dfb8;
+}
+
+.card-shadow {
+    /* card shadow source from https://www.w3schools.com/css/css3_shadows_box.asp */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bg-beige {
+    background:#e9dfb8;
+}
+
+
+
+/* products main section ends here*/
 
 /* -------------------------------- Media Queries */
 

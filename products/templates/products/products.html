@@ -12,11 +12,89 @@
 {% endblock %}
 
 {% block content %}
-<div class="container h-100">
-    <div class="row h-100">
-        <div class="col">
-            {{ products }}
+    <div class="cover-background">
+        <!--to cover background image -->
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center mt-3">
+                <h2 id="product-text">Products</h2>
+                <hr class="w-50 mb-1">
+                <!--horizontal line-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="product-container col-10 offset-1">
+                <div class="row mt-1 mb-2"></div>
+                <!-- horizontal line-->
+                <div class="row">
+                    {% for product in products %}
+                    <!-- for loop to add all product images-->
+                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                        <!--for small and medium devices one image for each row,
+                        for large devices three and for extra large four-->
+                        <div class="card-shadow card h-100 rounded">
+                            <!-- each item is a card created with bootstrap-->
+                            {% if product.image %}
+                            <a href="">
+                                <!---product image here (if the image exist) -->
+                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            </a>
+                            {% else %}
+                            <a href="">
+                                <!--if the image does not exist then no image presented-->
+                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                            </a>
+                            {% endif %}
+                            <div class="card-body  pb-0">
+                                <!---product name here -->
+                                <p class="mb-0">{{ product.name }}</p>
+                            </div>
+                            <div class="card-footer bg-white pt-0 border-0 text-left">
+                                <!--product footer that includes price and rating-->
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                                        <!--product price here-->
+                                        {% if product.rating %}
+                                        <!-- if product price exists then shows rating-->
+                                            <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                        {% else %}
+                                        <!-- otherwise there is not rating-->
+                                            <small class="text-muted">No Rating</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:1 %}
+                        <div class="col-12 d-sm-none mb-5">
+                            <!--for loop for each image it will implemented a horizontal line-->
+                            <hr>
+                        </div>
+                    {% endif %}                        
+                    {% if forloop.counter|divisibleby:2 %}
+                        <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                            <!--for loop for every two images it will implemented a horizontal line-->
+                            <hr>
+                        </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:3 %}
+                        <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                            <!--for loop for large devices it will implemented a horizontal line-->
+                            <hr>
+                        </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:4 %}
+                        <div class="col-12 d-none d-xl-block mb-5">
+                            <!--for loop for extra large devices it will implemented a horizontal line-->
+                            <hr>
+                        </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}
