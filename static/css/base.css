@@ -136,9 +136,21 @@ a > #image {
     background:#e9dfb8;
 }
 
-
-
 /* products main section ends here*/
+
+/* product description section starts here*/
+
+.product-description {
+    text-align: justify;
+}
+
+.product-name {
+    font-family:'Lato';
+    text-shadow: 2px 2px 4px #e9dfb8;
+    color: #000;
+}
+
+/* product description section ends here*/
 
 /* -------------------------------- Media Queries */
 

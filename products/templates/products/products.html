@@ -36,12 +36,12 @@
                         <div class="card-shadow card h-100 rounded">
                             <!-- each item is a card created with bootstrap-->
                             {% if product.image %}
-                            <a href="">
+                            <a href="{% url 'product_description' product.id %}">
                                 <!---product image here (if the image exist) -->
                                 <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                             </a>
                             {% else %}
-                            <a href="">
+                            <a href="{% url 'product_description' product.id %}">
                                 <!--if the image does not exist then no image presented-->
                                 <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                             </a>
