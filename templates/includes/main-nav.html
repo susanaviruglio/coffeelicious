@@ -17,10 +17,10 @@
                 Drinks
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Coffee Beans</a>
-                <a href="" class="dropdown-item">Medium Roast</a>
-                <a href="" class="dropdown-item">Dark Roast</a>
-                <a href="" class="dropdown-item">All Coffee</a>
+                <a href="{% url 'products' %}?category=coffee" class="dropdown-item">Coffee Beans</a>
+                <a href="{% url 'products' %}?category=medium" class="dropdown-item">Medium Roast</a>
+                <a href="{% url 'products' %}?category=dark" class="dropdown-item">Dark Roast</a>
+                <a href="{% url 'products' %}?category=coffee,medium,dark" class="dropdown-item">All Coffee</a>
             </div>
         </li>
 
@@ -29,9 +29,9 @@
                 Merch
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                <a href="" class="dropdown-item">T-Shirts</a>
-                <a href="" class="dropdown-item">Mugs</a>
-                <a href="" class="dropdown-item">All Merch</a>
+                <a href="{% url 'products' %}?category=shirts" class="dropdown-item">T-Shirts</a>
+                <a href="{% url 'products' %}?category=mugs" class="dropdown-item">Mugs</a>
+                <a href="{% url 'products' %}?category=shirts,mugs" class="dropdown-item">All Merch</a>
             </div>
         </li>
     </ul>
