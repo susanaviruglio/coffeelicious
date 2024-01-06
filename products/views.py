@@ -12,11 +12,35 @@ def all_products(request):
     # query is equal to none to avoid errors when loading the page
     categories = None
     # categories is equal to none to avoid errors when selecting them
-
+    sort = None
+    # to make sure that sort is defined and avoid errors
+    direction = None
+    # direction defined to avoid errors
 
     if request.GET:
         """to access product parameter in the search form I need to check if request exists,
         the text input in that form was named 'q'"""
+
+        if 'sort' in request.GET:
+            # to check if sort is in request method
+            sortkey = request.GET['sort']
+            sort = sortkey
+            # if sort exists then it will be sort by key which in this case is by name
+            if sortkey == 'name':
+                # allows to add a temporary field no a model
+                sortkey = 'lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+                # it annotates the current list of products with a new field
+
+            if 'direction' in request.GET:
+                # if sort is there then I need to check in which direction ascending or descending
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    # to check if the direction is descending 
+                    sortkey = f'-{sortkey}'
+                    # reverse sortkey direction
+            products = products.order_by(sortkey)
+            # sort all the products out by using order_by method
 
         if 'category' in request.GET:
             # to access the product sorted by category selected
@@ -39,11 +63,14 @@ def all_products(request):
             products = products.filter(queries)
             # I passed the queries in order to filter the products
 
+    sorting_all = f'{sort}_{direction}'
+    # return sorting method to the template
 
     context = {
         'products': products,
         'search_term': query,
         'current_categories': categories,
+        'sorting_all': sorting_all,
     }
 
 
