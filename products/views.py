@@ -25,12 +25,19 @@ def all_products(request):
             # to check if sort is in request method
             sortkey = request.GET['sort']
             sort = sortkey
+
             # if sort exists then it will be sort by key which in this case is by name
             if sortkey == 'name':
                 # allows to add a temporary field no a model
                 sortkey = 'lower_name'
                 products = products.annotate(lower_name=Lower('name'))
                 # it annotates the current list of products with a new field
+
+
+            if sortkey == 'category':
+                # to sort product by name instead of id
+                sortkey = 'category__name'
+
 
             if 'direction' in request.GET:
                 # if sort is there then I need to check in which direction ascending or descending
@@ -41,6 +48,7 @@ def all_products(request):
                     # reverse sortkey direction
             products = products.order_by(sortkey)
             # sort all the products out by using order_by method
+
 
         if 'category' in request.GET:
             # to access the product sorted by category selected

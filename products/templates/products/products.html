@@ -25,8 +25,34 @@
         </div>
         <div class="row">
             <div class="product-container col-10 offset-1">
-                <div class="row mt-1 mb-2"></div>
-                <!-- horizontal line-->
+                <div class="row mt-1 mb-2">
+                    <!-- sorting all the items but its price, rating, name, category-->
+                    <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                        <div class="sort-select-wrapper w-50">
+                            <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if sorting_all != 'None_None' %}info{% else %}black{% endif %}">
+                                <!--reset to home product page if reset otherwise sorting by any other option-->
+                                <option value="reset" {% if sorting_all == 'None_None' %}selected{% endif %}>Sort by...</option>
+                                <option value="price_asc" {% if sorting_all == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                                <option value="price_desc" {% if sorting_all == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                                <option value="rating_asc" {% if sorting_all == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                                <option value="rating_desc" {% if sorting_all == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                                <option value="name_asc" {% if sorting_all == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                                <option value="name_desc" {% if sorting_all == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                                <option value="category_asc" {% if sorting_all == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
+                                <option value="category_desc" {% if sorting_all == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 order-md-first">
+                        <p class="text-muted mt-3 text-center text-md-left">
+                            <!--In the Home Page won't show span name otherwise show number of products-->
+                            {% if search_term or current_categories or sorting_all != 'None_None' %}
+                                <span class="small"><a href="{% url 'products' %}">Coffeelicious Home</a> | </span>
+                            {% endif %}
+                            {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                        </p>
+                    </div>
+                </div>
                 <div class="row">
                     {% for product in products %}
                     <!-- for loop to add all product images-->
@@ -56,6 +82,14 @@
                                     <div class="col">
                                         <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
                                         <!--product price here-->
+                                        {% if product.category %}
+                                        <!--each product has a tag with the friendly name and url with a product specific name as a ref-->
+                                            <p class="small mt-1 mb-0">
+                                                <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                                                    <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                                </a>
+                                            </p>
+                                        {% endif %}
                                         {% if product.rating %}
                                         <!-- if product price exists then shows rating-->
                                             <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
