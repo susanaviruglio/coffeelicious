@@ -100,6 +100,7 @@ a > #image {
 .text-cream {
     color: #e9dfb8 !important;
 }
+
 .text-black {
     color: #000 !important;
 }
@@ -135,6 +136,20 @@ a > #image {
 .bg-beige {
     background:#e9dfb8;
 }
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    cursor: pointer;
+}
+
+
 
 /* products main section ends here*/
 
