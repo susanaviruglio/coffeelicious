@@ -30,6 +30,6 @@ def shopping_contents(request):
         'free_delivery_delta': free_delivery_delta,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'purchase_total': purchase_total
-    }
+    }  # all of this is available in every template, in any app across the project
 
     return context
