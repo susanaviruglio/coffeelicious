@@ -3,5 +3,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='home') # a path to index home page
+    path('', views.shopping_bag, name='shopping_bag') # path to shopping bag 
 ]

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col">
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="cover-background">
+    <!--to cover background image -->
+</div>
+<div class="container mb-2">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 id="product-text" class="mb-4">Shopping Bag</h2>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            {% if purchase_items %}
+            <!--if there is any time purchased then it will appear here -->
+                <div class="table-responsive rounded"></div>
+            {% else %}
+            <!--otherwise the shopping bag would be empty-->
+                <p class="lead mb-5">Your shopping bag is empty.</p>
+                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                        <!---arrow pointing to the left-->
+                    </span>
+                    <span class="text-uppercase">Keep Shopping</span>
+                    <!--a shopping button to go back-->
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount', # handles logging in via social media providers like Facebook
     'home', # install home, allows django to look inside of that app folder
     'products', # installed startapp named products
-]
+    'shopping' # installed startapp for shopping bag
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
