@@ -61,11 +61,31 @@
                                 <div class="form-group w-50">
                                     <div class="input-group">
                                         <!--input group with the quantity of the products, value and product id-->
-                                        <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                        <div class="input-group-prepend">
+                                            <button class="decrement-qty btn btn-black rounded-0" 
+                                                data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                                <span class="icon">
+                                                    <!--to decrement the amount of a product with minus sign-->
+                                                    <i class="fas fa-minus"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <!--number of items purchase by the customer from 1 to 99-->
+                                        <input class="form-control qty_input" type="number"
+                                        name="quantity" value="1" min="1" max="99" 
+                                        data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                        <div class="input-group-append">
+                                            <button class="increment-qty btn btn-black rounded-0"
+                                                data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
+                                                <span class="icon">
+                                                    <!--to increment the amount of a product with minus sign-->
+                                                    <i class="fas fa-plus"></i>
+                                                </span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-12">
                                 <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
                                     <span class="icon">
@@ -85,4 +105,14 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+
+<!--JavaScript for sorting Products-->
+{% block postloadjs %}
+<!---block wrapped to loaded on the base.html as well-->
+{{ block.super }}
+<!--block super to make sure we add this to anything already there-->
+<script src="{% static 'js/product_description.js' %}" crossorigin="anonymous"></script>
+<!---JavaScript file located in static folder, directory: static/js/product_description.js -->
 {% endblock %}
