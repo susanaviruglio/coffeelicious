@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load shopping_tools %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -56,15 +57,46 @@
                                 </td>
                                 <td class="py-3">
                                     <p class="my-0">£{{ item.product.price }}</p>
-                                    <!--product price -->
+
+                                    <!--product price  -->
                                 </td>
                                 <td class="py-3 w-25">
-                                    <p class="my-0">{{ item.quantity }}</p>
-                                    <!--amout of each item purchased-->
+                                    <form class="form update-form" method="POST" action="{% url 'adjust_shopping_bag' item.item_id %}">
+                                        <!-- copied and paste this form from products so the user is able to modify the number of items as well-->
+                                        {% csrf_token %}
+                                        <!--This tag is used for CSRF protection, -->
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <button class="decrement-qty btn btn-sm btn-black rounded-0" 
+                                                        data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                        <span>
+                                                            <i class="fas fa-minus fa-sm"></i>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <input class="form-control form-control-sm qty_input" type="number"
+                                                    name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                                    data-item_id="{{ item.item_id }}"
+                                                    id="id_qty_{{ item.item_id }}">
+                                                <div class="input-group-append">
+                                                    <button class="increment-qty btn btn-sm btn-black rounded-0"
+                                                        data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                        <span>
+                                                            <i class="fas fa-plus fa-sm"></i>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <a class="update-link text-info"><small>Update</small></a>
+                                    <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" ><small>Remove</small></a>
+                                    <!--amount of each item purchased-->
                                 </td>
                                 <td class="py-3">
-                                    <p class="my-0">£{{ item.product.price }}</p>
-                                    <!--products subtotal-->
+                                    <p class="my-0">£{{ item.product.price | calc_subtotal:item.quantity  }}</p>
+                                    <!--products subtotal and pipe the subtotal price of the item from shopping_bag.py-->
                                 </td>
                             </tr>
                         {% endfor %}
@@ -121,4 +153,15 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+<!--JavaScript to change the amount of items to purchase using two button '+' or '-'-->
+{% block postloadjs %}
+<!---block wrapped to loaded on the base.html as well-->
+{{ block.super }}
+<!--block super to make sure we add this to anything already there-->
+<script src="{% static 'js/product_description.js' %}" crossorigin="anonymous"></script>
+<!---JavaScript file located in static folder, directory: static/js/product_description.js -->
+<script src="{% static 'js/shopping_bag.js' %}" crossorigin="anonymous"></script>
+<!-- JavaScript to handle remove and update items-->
 {% endblock %}
