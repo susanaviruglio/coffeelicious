@@ -26,6 +26,7 @@ var style = {
     invalid: {
         color: '#dc3545',
         iconColor: '#dc3545'
+        // it turns red when the number is invalid
     }
 };
 var card = elements.create('card', {style: style});
