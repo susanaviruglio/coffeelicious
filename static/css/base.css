@@ -150,11 +150,7 @@ a > #image {
 .remove-item {
     cursor: pointer;
 }
-
-
-
 /* products main section ends here*/
-
 /* product description section starts here*/
 
 .product-description {
@@ -168,7 +164,22 @@ a > #image {
 }
 
 /* product description section ends here*/
+/* toast section starts here*/
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
 
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+/* toast section ends here*/
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */

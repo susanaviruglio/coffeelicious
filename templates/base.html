@@ -117,7 +117,23 @@
 
     <!---To display any message send back from Django-->
     {% if messages %}
-    <div class="message-container"></div>
+    <div class="message-container">
+        <!--iterate any messages sent back from the server-->
+        {% for message in messages %}
+        {% with message.level as level %}
+            {% if level == 40 %}
+                {% include 'includes/toasts/error.html' %}
+            {% elif level == 30 %}
+                {% include 'includes/toasts/warning.html' %}
+            {% elif level == 25 %}
+                {% include 'includes/toasts/success.html' %}
+            {% else %}
+                {% include 'includes/toasts/info.html' %}
+            {% endif %}
+        {% endwith %}
+    {% endfor %}
+
+    </div>
     {% endif %}
 
     <!---Additional header-->
@@ -130,6 +146,8 @@
 
     <!---to load JavaScript that we want to load at the end of the body here-->
     {% block postloadjs %}
+    <script src="{% static 'js/toasts.js' %}" crossorigin="anonymous"></script>
+    <!--to load messages when a user adds an item to the shopping bag-->
     {% endblock %}
     
   </body>
