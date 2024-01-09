@@ -45,7 +45,11 @@ INSTALLED_APPS = [
     'home', # install home, allows django to look inside of that app folder
     'products', # installed startapp named products
     'shopping', # installed startapp for shopping bag
-    'checkout' #installed startapp for checkout 
+    'checkout', #installed startapp for checkout 
+
+
+    
+    'crispy_forms', # other installed (pip3 install django-crispy-forms==1.14.0)
     ]
 
 MIDDLEWARE = [
@@ -59,6 +63,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'coffeelicious.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4' # it tells which template back I use for the checkout
 
 TEMPLATES = [
     {
@@ -75,8 +81,13 @@ TEMPLATES = [
                 # allow access the HTTP request object in our templates.
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media', # to support media in checkout 
                 'shopping.contexts.shopping_contents', # context procesor, all the items are available
             ],
+            'builtins': [ # all the tags available in the template by default
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
