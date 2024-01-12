@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'home', # install home, allows django to look inside of that app folder
     'products', # installed startapp named products
     'shopping', # installed startapp for shopping bag
-    'checkout', #installed startapp for checkout 
+    'checkout', #installed startapp for checkout
+    'profiles', # installed startapp for user profile
 
 
     

@@ -4,11 +4,17 @@ from django.db.models import Sum
 from django.conf import settings
 from products.models import Product # order line items has a foreign key
 from django_countries.fields import CountryField # to find countries 
+from profiles.models import UserProfile # attached user profile to checkout model
 
 class Order(models.Model):
     """ required data to order products"""
     order_number = models.CharField(max_length=32, null=False, editable=False)
     # it must be unique so user are able to find previous purchases
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+                                    null=True, blank=True, related_name='orders')
+    # user profile foreign key to the order to create the connection between user and checkout
+    # it sets to NULL if the profile is deleted to allow to keep order history
+    # black set to true for users who does not have an account 
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
