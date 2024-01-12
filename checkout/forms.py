@@ -23,24 +23,26 @@ class OrderForm(forms.ModelForm):
             'full_name': 'Full Name',
             'email': 'Email Address',
             'phone_number': 'Phone Number',
-            'country': 'Country',
             'postcode': 'Postal Code',
             'town_or_city': 'Town or City',
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
-            'county': 'County',
+            'county': 'County, State or Locality',
         }
 
         self.fields['full_name'].widget.attrs['autofocus'] = True
         # set autofocus field to true so the cursor starts in the full name when the user loads the page
         for field in self.fields:
-            # iterate through the form fields 
-            if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
+            # I have an error with country since I installed django-countries so I have to deleted
+            # from my placeholders and changed it here as well
+            if field != 'country':
+                # iterate through the form fields 
+                if self.fields[field].required:
+                    placeholder = f'{placeholders[field]} *'
                 # if the field is required would be marked with a star
-            else:
-                # otherwise setting all the placeholders to the values
-                placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
+                else:
+                    # otherwise setting all the placeholders to the values
+                    placeholder = placeholders[field]
+                self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
