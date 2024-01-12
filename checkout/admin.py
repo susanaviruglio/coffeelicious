@@ -17,17 +17,20 @@ class OrderAdmin(admin.ModelAdmin):
 
     readonly_fields = ('order_number', 'date',
                        'delivery_cost', 'order_total',
-                       'purchase_total',) # read only fields
+                       'purchase_total', 'original_bag',
+                       'stripe_pid') # read only fields
 
     fields = ('order_number', 'date', 'full_name',
               'email', 'phone_number', 'country',
               'postcode', 'town_or_city', 'street_address1',
               'street_address2', 'county', 'delivery_cost',
-              'order_total', 'purchase_total',) # personal fields
+              'order_total', 'purchase_total', 'original_bag',
+                       'stripe_pid') # personal fields
 
     list_display = ('order_number', 'date', 'full_name',
                     'order_total', 'delivery_cost',
-                    'purchase_total',) # display product list
+                    'purchase_total', 'original_bag',
+                       'stripe_pid') # display product list
 
     ordering = ('-date',) # order date
 
