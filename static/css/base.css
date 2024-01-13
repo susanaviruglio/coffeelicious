@@ -252,7 +252,26 @@ a > #image {
     border-color: #dc3545;
     border-radius: 0;
 }
+/* footer starts here */
+.social-networks {
+    text-align: center;
+}
 
+.social-networks li {
+    display: inline;
+}
+
+.social-networks i {
+    font-size: 160%;
+    margin: 1%;
+    padding: 0 5% 0 5%;
+    color: #e9dfb8;
+}
+
+.footer-background {
+    background-color: #414042 !important;
+}
+/* footer ends here*/
 
 /* -------------------------------- Media Queries */
 
@@ -343,3 +362,41 @@ a > #image {
           height: calc(100vh - 116px);
       }
   }
+
+
+
+@media (max-width: 900px) {
+
+    #home-text {
+        font-size: 230%;
+    }
+}
+
+
+@media (max-width: 767px) {
+
+    #home-text {
+        font-size: 211%;
+    }
+}
+
+@media (max-width: 400px) {
+
+    #home-text {
+        font-size: 156%;
+    }
+
+    .product-text {
+        font-size: 100%;
+    }
+
+    .shop-now-button {
+        font-size: 91%;
+        min-width: 200px;
+        height: 64px;
+    }
+}
+
+
+
+  
