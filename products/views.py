@@ -114,9 +114,9 @@ def add_product(request):
         # get file 
         if form.is_valid():
             # if the form is valid then show a success message
-            form.save()
+            product = form.save()
             messages.success(request, 'Product added successfully!')
-            return redirect(reverse('add_product'))
+            return redirect(reverse('product_description', args=[product.id]))
         else:
             # otherwise it would show that it has failed.
             messages.error(request, 'Failed to add product. Please ensure the form is valid.')
@@ -160,3 +160,14 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
+
+
+def delete_product(request, product_id):
+    """ Delete a product from the store """
+    product = get_object_or_404(Product, pk=product_id)
+    # in case there is any error
+    product.delete()
+    # delete product 
+    messages.success(request, 'Product deleted successfully!')
+    # message to show 
+    return redirect(reverse('products'))

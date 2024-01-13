@@ -7,4 +7,5 @@ urlpatterns = [
     # product description file path, it should be an integer
     path('add/', views.add_product, name='add_product'), # path for adding more products to the store
     path('edit/<int:product_id>/', views.edit_product, name='edit_product'), # path for editing products
+    path('delete/<int:product_id>/', views.delete_product, name='delete_product') # path for deleten products
     ]
