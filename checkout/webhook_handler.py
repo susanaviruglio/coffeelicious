@@ -2,9 +2,11 @@ from django.http import HttpResponse
 
 from .models import Order, OrderLineItem
 from products.models import Product
+from profiles.models import UserProfile
 
 import json
 import time # imported time module from Python
+
 
 
 class StripeWH_Handler:
@@ -29,7 +31,7 @@ class StripeWH_Handler:
         """
         intent = event.data.object
         # if the user closes the page 
-        pin = intent.id 
+        pid = intent.id 
         bag = intent.metadata.bag
         save_info = intent.metadata.save_info
 
@@ -47,6 +49,24 @@ class StripeWH_Handler:
             if value == "":
                 # stripe will store it as an empty string as none otherwise would be null
                 shipping_details.address[field] = None
+
+        # Update user profile the if the save info was checked
+        profile = None # user would check first
+        username = intent.metadata.username # get the user name from the metadata
+        if username != 'AnonymousUser':
+            # if the user name is not anonymous then get the user profile with the user name
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                # if they want to update the user profile by adding the shipping details,
+                # only if the info is saved
+                profile.default_phone_number = shipping_details.phone
+                profile.default_country = shipping_details.address.country
+                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_town_or_city = shipping_details.address.city
+                profile.default_street_address1 = shipping_details.address.line1
+                profile.default_street_address2 = shipping_details.address.line2
+                profile.default_county = shipping_details.address.state
+                profile.save()
 
         order_exists = False # if the order does not exist would be created in the webhook
         attempt = 1 # delay in case the web goes slow
@@ -68,10 +88,9 @@ class StripeWH_Handler:
                     )
                 order_exists = True 
                 break # break the loop if the order is found
-
             except Order.DoesNotExist:
                 attempt += 1
-                time.sleep(1)
+                time.sleep(1) # adding delays to handle information securely
 
         if order_exists:
             return HttpResponse(
@@ -82,6 +101,7 @@ class StripeWH_Handler:
             try: # otherwise it will create the order
                 order = Order.objects.create(
                     full_name=shipping_details.name,
+                    user_profile=profile,
                     email=billing_details.email,
                     phone_number=shipping_details.phone,
                     country=shipping_details.address.country,
@@ -121,6 +141,7 @@ class StripeWH_Handler:
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200)
+
 
     def handle_payment_intent_payment_failed(self, event):
         """
