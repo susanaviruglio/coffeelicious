@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 from django.db.models import Q
 from django.db.models.functions import Lower
+
 from .models import Product, Category
 from .forms import ProductForm 
 
@@ -105,10 +108,18 @@ def product_description(request, product_id):
     return render(request, 'products/product_description.html', context)
 
 
-
+# Django firsts check whether the user log in before executing the view
+@login_required
 # View for store owners to add products to the coffee store
 def add_product(request):
     """ Add a product to the store """
+
+    if not request.user.is_superuser:
+        # if the user is not a superuser
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home')) # redirected back to the home page
+
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         # get file 
@@ -130,10 +141,18 @@ def add_product(request):
 
     return render(request, template, context)
 
-
+@login_required
 # to be able to edit the products in the store
 def edit_product(request, product_id):
     """ Edit a product in the store """
+
+
+    if not request.user.is_superuser:
+        # if the user is not a superuser
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home')) # redirected back to the home page
+
+
     product = get_object_or_404(Product, pk=product_id)
     # if there is any error then show error
     if request.method == 'POST':
@@ -161,9 +180,16 @@ def edit_product(request, product_id):
 
     return render(request, template, context)
 
-
+@login_required
 def delete_product(request, product_id):
     """ Delete a product from the store """
+
+    if not request.user.is_superuser:
+        # if the user is not a superuser
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home')) # redirected back to the home page
+
+
     product = get_object_or_404(Product, pk=product_id)
     # in case there is any error
     product.delete()
