@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, Category
+from .forms import ProductForm 
 
 # Create your views here.
 def all_products(request):
@@ -102,3 +103,16 @@ def product_description(request, product_id):
 
     # it need to return a context so I have to send information back to the template
     return render(request, 'products/product_description.html', context)
+
+
+
+# View for store owners to add products to the coffee store
+def add_product(request):
+    """ Add a product to the store """
+    form = ProductForm()
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)

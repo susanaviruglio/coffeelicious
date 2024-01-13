@@ -126,7 +126,7 @@ a > #image {
 	z-index: -1;
 }
 
-#product-text{
+.product-text{
     color: #202020;
     font-family: 'Lato';
     text-transform: uppercase;
