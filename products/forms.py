@@ -1,4 +1,5 @@
 from django import forms
+from .widgets import CustomClearableFileInput
 from .models import Product, Category
 
 # allow superuser the ability to add and delete forms
@@ -7,6 +8,8 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product 
         fields = '__all__' # select all the fields
+
+    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
