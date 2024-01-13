@@ -23,7 +23,27 @@
                 <hr>
             </div>
         </div>
-        {{ profile }}
-        <!--rendered profile-->
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <!--User Default Delivery Information-->
+                <p class="text-muted">Default Delivery Information</p>
+                <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <!--render as a crispy form-->
+                    <button class="btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
+                </form>
+            </div>
+            <div class="col-12 col-lg-6">
+                <!--User order history here-->
+                <p class="text-muted">Order History</p>
+                {{ orders }}
+            </div>
+        </div>
 {% endblock %}
 
+{% block postloadjs %}
+    {{ block.super }}
+    <!--to change country field to grey when it is not selected yet-->
+    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
+{% endblock %}
