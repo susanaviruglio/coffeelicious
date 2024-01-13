@@ -64,6 +64,43 @@ To build a coffeeshop.
 
 ## TESTING 
 
+**Allauth Directory Templates**
+
+I created a directory templates allauth because I wanted to customize the allauth templates in my own allauth, so this ensures that my templates take precedence over the built ones.
+This gives a copy of every single Allauth template.
+I tried to copy everything that I needed with the command cp -r which means to copy recursively
+../ to go up one level from where we are right now.
+	cp -r ../.pip-modules/lib/python3.9.17/site-packages/allauth/templates/* ./templates/allauth
+so this link did not work so I typed : find / -type d -name "allauth" and I found the real directory for gitpod
+	cp -r /workspace/.pip-modules/lib/python3.9/site-packages/allauth/templates/* ./templates/allauth/
+**Bad Request** 
+
+When I was working on my Profile app, I encountered with Bad Request error:
+
+"Bad Request: /checkout/wh/ [13/Jan/2024 11:29:33] "POST /checkout/wh/ HTTP/1.1" 400 0".
+
+I found out that normally it indicates that the server did not understand the request. I realised that I forgot to import settings.py on my webhook_handler.py file.
+
+**Template Does Not Exist**
+
+I received this error message when I was trying to access checkout.html file:
+"TemplateDoesNotExist at /checkout/includes/toasts/warning.html"
+
+It was another typo in my spellings because I forgot an in s in warnings.html
+
+**Module Not Found**
+
+When I was trying to run the server I encountered wit this error in the terminal:
+
+"ModuleNotFoundError: No module named 'checkoutcrispy_forms'"
+
+I was checking everywhere for the error, but it was a typo in my settings.py I forgot to add a comma in my intalled_apps.
+
+**Type Error**
+
+I encountered 'TypeError' at line 48 of the adjust_shopping_bag function in the views.py file. To resolve the issue I had to review carefully the views.py specifically in the line 48.
+
+I looked for the line where I was using square brackets to access an item, like bag.pop[item_id] instead of using parentheses "bag.pop(item_id)".
 
 ## DEPLOYMENT
 
@@ -224,7 +261,3 @@ Box shadow effect for the product images
 
 ## EXTRA INFORMATION 
 
-I created a directory templates allauth because I will customize the allauth templates in my own allauth, so this ensure that our templates take precedence over the built ones.
-
-This gives us a copy of every single Allauth template so we can customize them at will.
-I may delete openid and tests*
