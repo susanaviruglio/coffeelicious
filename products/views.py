@@ -109,7 +109,20 @@ def product_description(request, product_id):
 # View for store owners to add products to the coffee store
 def add_product(request):
     """ Add a product to the store """
-    form = ProductForm()
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        # get file 
+        if form.is_valid():
+            # if the form is valid then show a success message
+            form.save()
+            messages.success(request, 'Product added successfully!')
+            return redirect(reverse('add_product'))
+        else:
+            # otherwise it would show that it has failed.
+            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+    else:
+        form = ProductForm()
+        
     template = 'products/add_product.html'
     context = {
         'form': form,

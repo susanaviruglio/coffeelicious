@@ -46,8 +46,15 @@
                         <!--all the items interated here to be purchase-->
                             <tr>
                                 <td class="p-3 w-25">
-                                    <img class="img-fluid rounded" src="{{ item.product.image.url }}">
-                                    <!--product image shows here-->
+
+                                    {% if item.product.image %}
+                                        <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                                        <!-- delivery image to show the item-->
+                                    {% else %}
+                                    <!--to make sure that when a product does not have an image we are able to add it in the shopping bag-->
+                                        <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                                        <!--no image exists-->
+                                    {% endif %}
                                 </td>
                                 <td class="py-3">
                                     <p class="my-0"><strong>{{ item.product.name }}</strong></p>
