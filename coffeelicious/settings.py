@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-q)eopmi%)2j9ff=-jvz_2itr7=$^qqc^&q#&#$me#ih6^cv+7^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True 
 
-ALLOWED_HOSTS = ['8000-susanavirug-coffeelicio-m2q1l97ngyk.ws-eu107.gitpod.io']
+ALLOWED_HOSTS = ['coffeelicious.herokuapp.com', 'localhost'] # for heroku
 
 
 # Application definition
@@ -128,7 +128,13 @@ WSGI_APPLICATION = 'coffeelicious.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
