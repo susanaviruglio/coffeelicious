@@ -121,6 +121,16 @@ While creating the database, I considered that it might be challenging to locate
 <img src="media/noimage.png">
 
 
+### DATABASE EVOLUTION
+
+**ERDplus Diagram for a database**
+
+<img src="static/images/erdplus-diagram.png">
+
+**Database Tables**
+
+<img src="static/images/table.png">
+
 ## TESTING 
 
 **Path Error while Deploying**
@@ -165,6 +175,7 @@ I was checking everywhere for the error, but it was a typo in my settings.py I f
 I encountered 'TypeError' at line 48 of the adjust_shopping_bag function in the views.py file. To resolve the issue I had to review carefully the views.py specifically in the line 48.
 
 I looked for the line where I was using square brackets to access an item, like bag.pop[item_id] instead of using parentheses "bag.pop(item_id)".
+
 
 ## DEPLOYMENT
 
