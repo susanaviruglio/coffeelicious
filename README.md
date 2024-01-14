@@ -379,13 +379,11 @@ bottom. AWS has changed the format of their CORS configuration - the updated cod
 
 <img src="static/images/countryfields-javascript.png">
 
-
-
-
-
-
 ### PYTHON
 
+<img src="static/images/python-validator-two.png">
+
+<img src="static/images/python-validator.png">
 
 ### LIGHTHOUSE
 
