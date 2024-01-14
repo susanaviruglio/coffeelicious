@@ -355,7 +355,25 @@ bottom. AWS has changed the format of their CORS configuration - the updated cod
 
 ### CSS
 
-<img src="static/images/css.png">
+**Shopping Bag Js^**
+
+<img src="static/images/javascript-shopping-bag.png">
+
+**Products Js^**
+
+<img src="static/images/products-javascript.png">
+
+**Products Description Js^**
+
+<img src="static/images/product-description-javascript.png">
+
+**Checkout, Stripe Elements Js^**
+
+<img src="static/images/stripe-javascript.png">
+
+**Products, Country Fields Js**
+
+<img src="static/images/countryfields-javascript.png">
 
 ### JAVASCRIPT
 

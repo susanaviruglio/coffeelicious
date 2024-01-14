@@ -1,8 +1,8 @@
 
 // Click arrow to scroll to the top of the page, the links are from bootstrap or font awesome
 $('.btt-link').click(function(e) {
-    window.scrollTo(0,0)
-})
+    window.scrollTo(0,0);
+});
 
 
 
@@ -27,4 +27,4 @@ $('#sort-selector').change(function() {
 
         window.location.replace(currentUrl); // replace location to current location
     }
-})
+});

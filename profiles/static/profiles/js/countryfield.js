@@ -4,7 +4,7 @@ if(!getCountryValue) {
     // color default
     $('#id_default_country').css('color', '#414042');
 
-};
+}
 $('#id_default_country').change(function() {
     getCountryValue = $(this).val();
     // everytime the box changes it gets its value
