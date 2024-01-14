@@ -272,7 +272,7 @@ Before we can build our application on Heroku, we need to create a few files tha
 
 13. Finally, to prevent exposing our database when we push to GitHub, we will delete it again from our settings.py - we’ll set it up again using an environment variable in the next video - and reconnect to our local sqlite database. For now, your DATABASE setting in the settings.py file should look like this
 
-![Alt text](image.png)
+![Alt text](static/images/image.png)
 
 14. Confirm the database, click to *Browser* and select auth_user, but you may want to check your other databases as well. Now ready to deploy to Heroku.
 
@@ -332,17 +332,17 @@ Amazon Web Services (AWS) is a cloud computing platform that provides a wide ran
 4. On the properties tab static website hosting can now be found, by scrolling down to the
 bottom. AWS has changed the format of their CORS configuration - the updated code is shown below. Paste that into the Cross-origin resource sharing (CORS) section.
 
-![Alt text](image-1.png)
+![Alt text](static/images/image-1.png)
 
 5. Bucket policy.
-![Alt text](image-2.png)
+![Alt text](static/images/image-2.png)
 
 6. Identify and Management (IAM), create a group with the name of your choice and create a policy.
 
-![Alt text](image-3.png)
+![Alt text](static/images/image-3.png)
 
 7. Retrieve access Key
-![Alt text](image-4.png)
+![Alt text](static/images/image-4.png)
 
 8. Once you have add it to Heroku, then you will need to create a folder in AWS Amazon name *media* and add all your pictures from your PC. If you do not have access to your images any more I suggest to download from your *github*.
 
