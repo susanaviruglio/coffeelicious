@@ -353,10 +353,9 @@ bottom. AWS has changed the format of their CORS configuration - the updated cod
 
 <img src="static/images/html.png">
 
-
-
 ### CSS
 
+<img src="static/images/css.png">
 
 ### JAVASCRIPT
 
