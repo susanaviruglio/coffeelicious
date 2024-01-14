@@ -1,9 +1,10 @@
 # Coffeelicious
 ## Full Stack Frameworks with Django Milestone Project by Susana Viruglio
 
-To build a coffeeshop.
+Welcome to Coffeelicious, where we know that life is too short for a bad coffee and
+dive into tastiest coffees from around the world. This Coffeeshop has been built by using a full stack framework with Django, your journey starts here.
 
-(IMAGE)
+<img src="static/images/presentation.png">
 
 
 ### External User Goals
