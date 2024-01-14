@@ -8,6 +8,7 @@ from django.db.models.functions import Lower
 from .models import Product, Category
 from .forms import ProductForm 
 
+
 # Create your views here.
 def all_products(request):
     """A view to show all coffee products, including sorting and search queries by the user"""
@@ -21,6 +22,7 @@ def all_products(request):
     # to make sure that sort is defined and avoid errors
     direction = None
     # direction defined to avoid errors
+
 
     if request.GET:
         """to access product parameter in the search form I need to check if request exists,
