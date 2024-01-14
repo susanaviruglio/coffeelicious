@@ -1,10 +1,10 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-cream mr-5" href="#" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-cream mr-5" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Products
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="">
+            <div class="dropdown-menu border-0">
                 <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
                 <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
@@ -16,7 +16,7 @@
             <a class="logo-font font-weight-bold nav-link text-cream mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Drinks
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
+            <div class="dropdown-menu border-0">
                 <a href="{% url 'products' %}?category=coffee_beans" class="dropdown-item">Coffee Beans</a>
                 <a href="{% url 'products' %}?category=medium_roast" class="dropdown-item">Medium Roast</a>
                 <a href="{% url 'products' %}?category=dark_roast" class="dropdown-item">Dark Roast</a>
@@ -28,7 +28,7 @@
             <a class="logo-font font-weight-bold nav-link text-cream mr-5" href="#" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Merch
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
+            <div class="dropdown-menu border-0">
                 <a href="{% url 'products' %}?category=t_shirts" class="dropdown-item">T-Shirts</a>
                 <a href="{% url 'products' %}?category=mugs" class="dropdown-item">Mugs</a>
                 <a href="{% url 'products' %}?category=t_shirts,mugs" class="dropdown-item">All Merch</a>
