@@ -4,6 +4,8 @@
 Welcome to Coffeelicious, where we know that life is too short for a bad coffee and
 dive into tastiest coffees from around the world. This Coffeeshop has been built by using a full stack framework with Django, your journey starts here.
 
+[Visit Coffeelicious!](https://coffeelicious-0a5548d626d6.herokuapp.com/)
+
 <img src="static/images/presentation.png">
 
 
@@ -121,6 +123,11 @@ While creating the database, I considered that it might be challenging to locate
 
 ## TESTING 
 
+**Path Error while Deploying**
+
+When I deployed to Heroku, I was unable to view the drinks Category on the web. I fixed it by checking the path on main-nav.html. At the project's outset, after creating the database, I manually changed the ID names of the categories in Django. Consequently, during migration to the ElephantSQL database, it retained information from my categories.json instead of Django. I addressed the issue by correcting the typo, and the modification proved successful.
+
+
 **Allauth Directory Templates**
 
 I created a directory templates allauth because I wanted to customize the allauth templates in my own allauth, so this ensures that my templates take precedence over the built ones.
@@ -163,35 +170,12 @@ I looked for the line where I was using square brackets to access an item, like 
 
 ### Github
 
-This project is deployed using GitHub pages using the following process:
+This project does not followed Github deployment process, but it is link to Heroku.
 
-**Deploying a GitHub Repository via GitHub Pages**
+[Web link once deployed](https://coffeelicious-0a5548d626d6.herokuapp.com/)
 
-1. In your Repository section, select the Repository you wish to deploy.
-2. In the top horizontal Menu, locate and click the Settings link.
-3. Inside the Setting page, around halfway down locate the GitHub Pages Section.
-4. Under Source, select the None tab and change it to Master and click Save.
-5. Finally once the page resets scroll back down to the GitHub Pages Section to see the following message *"Your site is ready to be published at (Link to the GitHub Page Web Address)"*. It can take time for the link to open your project initially, so please don't be worried if it down not load immediately.
-
-**Forking the Github Repository**
-
-You can fork a GitHub Repository to make a copy of the original repository to view or make changes without it affecting the original repository.
-
-- Find the GitHub repository.
-- At the top of the page to the right, under your account, click the Fork button.
-- You will now have a copy of the repository in your GitHub account.
-  
-**Making a Local Clone**
-
-1. Find the GitHub Repository.
-2. Click the Code button
-3. Copy the link shown.
-4. In Gitpod, change the directory to the location you would like the cloned directory to be located.
-5. Type git clone, and paste the link you copied in step 
-6. Press Enter to have the local clone created.
-
-[Web link once deployed](LINK)
 ### HEROKU and ELEPHANTSQL
+
 Deploying a Python application on Heroku involves several steps. Here's a general guide:
 If you don't have a Heroku account, sign up for one at Heroku's website.
 1. Create an account with ElephantSQL
@@ -218,39 +202,68 @@ Before we can build our application on Heroku, we need to create a few files tha
 - A requirements.txt file which contains a list of the Python dependencies that our project needs in order to run successfully.
 
 - A Procfile which contains the start command to run the project.
+
 **Process**
+
 1. Generate the requirements.txt file with the following command in the terminal. After you run this command a new file called requirements.txt should appear in your root directory
 
- pip freeze --local > requirements.txt
+ *pip freeze --local > requirements.txt*
 
 2. Heroku requires a Procfile containing a command to run your program. Inside the root directory of your project create the new file. It must be called Procfile with a capital P, otherwise Heroku won’t recognise it
 
 3. Inside the file, add the following command:
 
- web: python run.py
+*web: gunicorn projectname.wsgi:application*
 
-4. Open your init file
+4. In the terminal, install dj_database_url and psycopg2, both of these are needed to connect to your external database.
 
-5. Add an if statement before the line setting the SLQALCHEMY_DATABASE_URI and, in the else, set the value to reference a new variable, DATABASE_URL.
+*pip3 install dj_database_url==0.5.0 psycopg2*
 
- app = Flask(__name__)
- app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
+5. Update your requirements.txt file with the newly installed packages
 
- if os.environ.get("DEVELOPMENT") == "True":
-     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
- else:
-     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+*pip freeze --local > requirements.txt*
 
-6. To ensure that SQLAlchemy can also read our external database, its URL needs to start with “postgresql://”, but we should not change this in the environment variable. Instead, we’ll make an addition to our else statement from the previous step to adjust our DATABASE_URL in case it starts with postgres://:
+6. In your settings.py file, import dj_database_url underneath the import for os
 
- if os.environ.get("DEVELOPMENT") == "True":
-     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
- else:
-     uri = os.environ.get("DATABASE_URL")
-     if uri.startswith("postgres://"):
-         uri = uri.replace("postgres://", "postgresql://", 1)
-     app.config["SQLALCHEMY_DATABASE_URI"] = uri
-7. Save all your files and then add, commit and push your changes to GitHub
+*import os*
+
+*import dj_database_url*
+
+7. Scroll to the DATABASES section and update it to the following code, so that the original connection to sqlite3 is commented out and we connect to the new ElephantSQL database instead. Paste in your ElephantSQL database URL in the position indicated
+ 
+*DATABASES = {*
+
+*'default': dj_database_url.parse('your-database-url-here')*
+
+*}*
+
+**DO NOT commit this file with your database string in the code, this is temporary so that we can connect to the new database and make migrations. We will remove it in a moment.**
+
+8. In the terminal, run the showmigrations command to confirm you are connected to the external database
+
+ *python3 manage.py showmigrations*
+
+9. Migrate your database models to your new database
+
+*python3 manage.py migrate*
+
+10. Load in the fixtures. Please note the order is very important here. We need to load categories first
+
+*python3 manage.py loaddata categories*
+
+11. Then products, as the products require a category to be set
+
+ *python3 manage.py loaddata products*
+
+12. Create a superuser for your new database
+
+*python3 manage.py createsuperuser*
+
+13. Finally, to prevent exposing our database when we push to GitHub, we will delete it again from our settings.py - we’ll set it up again using an environment variable in the next video - and reconnect to our local sqlite database. For now, your DATABASE setting in the settings.py file should look like this
+
+![Alt text](image.png)
+
+14. Confirm the database, click to *Browser* and select auth_user, but you may want to check your other databases as well. Now ready to deploy to Heroku.
 
 **Heroku process**
 
@@ -263,19 +276,65 @@ Now that you have your database and code in your IDE configured, we will add it 
 5. Return to your ElephantSQL tab and copy your database URL
 6. Back on Heroku, add a Config Var called DATABASE_URL and paste your ElephantSQL database URL in as the value. Make sure you click “Add”
 7. Add each of your other environment variables except DEVELOPMENT and DB_URL from the env.py file as a Config Var. The result should look something like this:
-<img src= bookmanager/static/images/heroku-env-vars.png>
+
+<img src="static/images/heroku.png">
 
 **Deploy the app**
 
-1. Navigate to the “Deploy” tab of your app
-2. In the Deployment method section, select “Connect to GitHub”
-3. Search for your repo and click Connect
-4. Optional: You can click Enable Automatic Deploys in case you make any further changes to the project. This will trigger any time code is pushed to your GitHub repository.
-5. As we already have all our changes pushed to GitHub, we will use the Manual deploy section and click Deploy Branch. This will start the build process. 
-6. Now, we have our project in place, and we have an empty database ready for use. As you may remember from our local development, we still need to add our tables to our database. To do this, we can click the “More” button and select “Run console”.
-7. Type python3 into the console and click Run
-8. This opens the Python terminal, in the same way as it would if we typed python3 into the terminal within our IDE. Let’s now create the tables with the commands we used before.
-9. Exit the Python terminal, by typing exit() and hitting enter, and close the console. Our Heroku database should now have the tables and columns created from our models.py file.
+1. To prepare to deploy to Heroku first we need to install gunicorn.
+
+*pip3 install gunicorn*
+
+2. Then save it in requirements.txt
+
+*pip3 freeze > requirements.txt*
+
+3. Login in Heroku in the terminal
+
+*heroku login*
+
+4. Config Heroku to connect to the Heroku app.
+
+*heroku config:set DISABLE_COLLECTSTATIC=1 --plan coffeelicious (it is the name of the heroku app in this case is coffeeliciuos)*
+
+5. Now in your settings.py we need to allow host with your app name:
+
+*ALLOWED_HOSTS = ['your-heroku-app-name.herokuapp.com', 'localhost']*
+
+6. Change your secret key in settings.py because it is very important to keep it save.
+
+*SECRET_KEY = os.environ.get('SECRET_KEY', '')*
+
+7. One of the things that Heroku has issues is with Debug equal to False, if you set it to False you will not able to see your web. Even though, you never should have Debug equal to True when you deploy your website because you would be exposing all your secret keys. In this case we must do this:
+
+*DEBUG = 'DEVELOPMENT' in os.environ*
+
+### AWS AMAZON
+
+Amazon Web Services (AWS) is a cloud computing platform that provides a wide range of services to help businesses and developers build and deploy applications more effectively. For Django, AWS offers various services that can be leveraged to host, deploy, and scale Django applications. 
+
+1. First, create an account.
+
+2. Crate a bucket; when creating a bucket it can left default, but the Object Ownership setting (below) needs to be set as shown with the ACLs enabled option checked.
+
+3. Buckets settings.The S3 Bucket options page is now a scrollable page broken into sections.
+4. On the properties tab static website hosting can now be found, by scrolling down to the
+bottom. AWS has changed the format of their CORS configuration - the updated code is shown below. Paste that into the Cross-origin resource sharing (CORS) section.
+
+![Alt text](image-1.png)
+
+5. Bucket policy.
+![Alt text](image-2.png)
+
+6. Identify and Management (IAM), create a group with the name of your choice and create a policy.
+
+![Alt text](image-3.png)
+
+7. Retrieve access Key
+![Alt text](image-4.png)
+
+8. Once you have add it to Heroku, then you will need to create a folder in AWS Amazon name *media* and add all your pictures from your PC. If you do not have access to your images any more I suggest to download from your *github*.
+
 
 ## HTML AND CSS VALIDATOR
 ### HTML
