@@ -348,7 +348,11 @@ bottom. AWS has changed the format of their CORS configuration - the updated cod
 
 
 ## HTML AND CSS VALIDATOR
+
 ### HTML
+
+**Base.html**
+
 
 
 ### CSS

@@ -39,123 +39,122 @@
   </head>
   <body>
     <!--to make sure the header is stick on top of the page-->
-    <header class="container-fluid fixed-top">
-      <div id="topnav" class="navigation row pt-lg-2 d-none d-lg-flex">
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-          <a href="{% url 'home' %}" class="nav-link main-logo-link">
-            <img id="image" src="{% static 'images/logo.png' %}" alt="Coffee Logo">
-          </a> 
-        </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-          <form method="GET" action="{% url 'products' %}">
-            <div class="input-group w-100">
-                <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
-                <div class="input-group-append">
-                    <button class="search-btn form-control btn btn-black border border-black rounded-0" type="submit">
-                        <span class="icon">
-                            <i  class="fas fa-search"></i>
-                        </span>
-                    </button>
+        <header class="container-fluid fixed-top">
+            <div id="topnav" class="navigation row pt-lg-2 d-none d-lg-flex">
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                    <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                    <img id="image" src="{% static 'images/logo.png' %}" alt="Coffee Logo">
+                    </a> 
+                </div>
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                    <form method="GET" action="{% url 'products' %}">
+                        <div class="input-group w-100">
+                            <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
+                                <div class="input-group-append">
+                                    <button class="search-btn form-control btn btn-black border border-black rounded-0" type="submit">
+                                        <span class="icon">
+                                            <i  class="fas fa-search"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                    <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                        <li class="list-inline-item dropdown">
+                            <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="text-center">
+                                    <div><i class="fas fa-user fa-lg"></i></div>
+                                    <p class="my-account-color my-0">My Account</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                {% if request.user.is_authenticated %}
+                                    {% if request.user.is_superuser %}
+                                        <a href="{% url 'add_product' %}" class="navigation-color dropdown-item">Admin Product Management</a>
+                                    {% endif %}
+                                        <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                                        <a href="{% url 'account_logout' %}" class="navigation-color dropdown-item">Logout</a>
+                                    {% else %}
+                                        <a href="{% url 'account_signup' %}" class="navigation-color dropdown-item">Register</a>
+                                        <a href="{% url 'account_login' %}" class="navigation-color dropdown-item">Login</a>
+                                    {% endif %}
+                            </div>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="{% if purchase_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'shopping_bag' %}">
+                                <div class="text-center">
+                                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                     <p class="my-account-color my-0">
+                                        {% if purchase_total %}
+                                            £{{ purchase_total|floatformat:2 }}
+                                        {% else %}
+                                            £0.00
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </form>
-        </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-          <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-            <li class="list-inline-item dropdown">
-                <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="text-center">
-                        <div><i class="fas fa-user fa-lg"></i></div>
-                        <p class="my-account-color my-0">My Account</p>
-                    </div>
-                </a>
-                <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                    {% if request.user.is_authenticated %}
-                        {% if request.user.is_superuser %}
-                        <a href="{% url 'add_product' %}" class="navigation-color dropdown-item">Admin Product Management</a>
-                        {% endif %}
-                        <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                        <a href="{% url 'account_logout' %}" class="navigation-color dropdown-item">Logout</a>
-                    {% else %}
-                        <a href="{% url 'account_signup' %}" class="navigation-color dropdown-item">Register</a>
-                        <a href="{% url 'account_login' %}" class="navigation-color dropdown-item">Login</a>
-                    {% endif %}
-                </div>
-            </li>
-            <li class="list-inline-item">
-                <a class="{% if purchase_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'shopping_bag' %}">
-                    <div class="text-center">
-                        <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                        <p class="my-account-color my-0">
-                            {% if purchase_total %}
-                                £{{ purchase_total|floatformat:2 }}
-                            {% else %}
-                                £0.00
-                            {% endif %}
-                        </p>
-                    </div>
-                </a>
-            </li>
-        </ul>
-        </div>
-      </div>
-      <div class="navigation row ">
-        <nav class="navbar navbar-expand-lg navbar-light w-100">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!--I have included the mobile navigation bar here-->
-            {% include 'includes/mobile-top-header.html' %}
-            <!-- I have included the main navigation bar here-->
-            {% include 'includes/main-nav.html' %}
-        </nav>
-    </div>
-    <div id="delivery-banner" class="row text-center">
-        <div class="col bg-beige text-white">
-            <h4 class="product-text my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>                
-        </div>            
-    </div>
+            <div class="navigation row ">
+                <nav class="navbar navbar-expand-lg navbar-light w-100">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!--I have included the mobile navigation bar here-->
+                    {% include 'includes/mobile-top-header.html' %}
+                    <!-- I have included the main navigation bar here-->
+                    {% include 'includes/main-nav.html' %}
+                    </nav>
+            </div>
+                    <div id="delivery-banner" class="row text-center">
+                        <div class="col bg-beige text-white">
+                        <h4 class="product-text my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>                
+                    </div>            
     </header>
 
-    <!---To display any message send back from Django-->
-    {% if messages %}
-    <div class="message-container">
-        <!--iterate any messages sent back from the server-->
-        {% for message in messages %}
-        {% with message.level as level %}
-        <!-- Django has levels that gives the opportunity to classifier
-             different types of messages-->
-            {% if level == 40 %}
-            <!-- level 40 is an error message -->
-                {% include 'includes/toasts/errors.html' %}
-            {% elif level == 30 %}
-            <!--level 30 is a warning message-->
-                {% include 'includes/toasts/warnings.html' %}
-            {% elif level == 25 %}
-            <!-- level 25 is success message-->
-                {% include 'includes/toasts/success.html' %}
-            {% else %}
-            <!-- as default I use info message-->
-                {% include 'includes/toasts/info.html' %}
-            {% endif %}
-        {% endwith %}
-    {% endfor %}
+            <!---To display any message send back from Django-->
+                {% if messages %}
+                    <div class="message-container">
+                        <!--iterate any messages sent back from the server-->
+                        {% for message in messages %}
+                        {% with message.level as level %}
+                         <!-- Django has levels that gives the opportunity to classifier
+                         different types of messages-->
+                        {% if level == 40 %}
+                        <!-- level 40 is an error message -->
+                        {% include 'includes/toasts/errors.html' %}
+                        {% elif level == 30 %}
+                        <!--level 30 is a warning message-->
+                        {% include 'includes/toasts/warnings.html' %}
+                        {% elif level == 25 %}
+                        <!-- level 25 is success message-->
+                        {% include 'includes/toasts/success.html' %}
+                        {% else %}
+                         <!-- as default I use info message-->
+                        {% include 'includes/toasts/info.html' %}
+                        {% endif %}
+                        {% endwith %}
+                        {% endfor %}
 
-    </div>
-    {% endif %}
+                    </div>
+                {% endif %}
 
-    <!---Additional header-->
-    {% block page_header %}
-    {% endblock %}
+        <!---Additional header-->
+        {% block page_header %}
+        {% endblock %}
      
-    <!--main content here-->
-    {% block content %}
-    {% endblock %}
+        <!--main content here-->
+        {% block content %}
+        {% endblock %}
 
-    <!---to load JavaScript that we want to load at the end of the body here-->
-    {% block postloadjs %}
-    <script src="{% static 'js/toasts.js' %}" crossorigin="anonymous"></script>
-    <!--to load messages when a user adds an item to the shopping bag-->
-    {% endblock %}
+        <!---to load JavaScript that we want to load at the end of the body here-->
+        {% block postloadjs %}
+            <script src="{% static 'js/toasts.js' %}" crossorigin="anonymous"></script>
+            <!--to load messages when a user adds an item to the shopping bag-->
+        {% endblock %}
   </body>
 </html>
