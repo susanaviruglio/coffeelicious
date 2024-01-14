@@ -359,15 +359,15 @@ bottom. AWS has changed the format of their CORS configuration - the updated cod
 
 ### JAVASCRIPT
 
-**Shopping Bag Js^**
+**Shopping Bag Js**
 
 <img src="static/images/javascript-shopping-bag.png">
 
-**Products Js^**
+**Products Js**
 
 <img src="static/images/products-javascript.png">
 
-**Products Description Js^**
+**Products Description Js**
 
 <img src="static/images/product-description-javascript.png">
 
@@ -409,6 +409,4 @@ Paragraph converter for the json file.
 
 [W3SCHOOL](https://www.w3schools.com/css/css3_shadows_box.asp)
 Box shadow effect for the product images
-
-## EXTRA INFORMATION 
 
