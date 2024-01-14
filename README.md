@@ -387,6 +387,7 @@ bottom. AWS has changed the format of their CORS configuration - the updated cod
 
 ### LIGHTHOUSE
 
+<img src="static/images/lighthouse-validator.png">
 
 ## CREDITS
 All the code that I have used to create this website was taken from Code Institute learning platform and from the next following sources:
