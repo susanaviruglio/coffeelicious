@@ -28,7 +28,7 @@ dive into tastiest coffees from around the world. This Coffeeshop has been built
 
 - User registration and profile.
 
-- A coffee and tea catalogue with images and well organized.
+- A coffee catalogue and a range of merchandise with images and well organized.
 
 - Product search and filter to help users to find easily specific products.
 
@@ -46,8 +46,7 @@ dive into tastiest coffees from around the world. This Coffeeshop has been built
 
 - Create an user account which allows to make purchases.
 
-
-
+### QUESTIONS FROM USERS
 
 1. **How can create an user account?** I would like to create an account and log in so I am able to save all my bank details the next time I wish to do another purchase.
 
@@ -61,6 +60,63 @@ dive into tastiest coffees from around the world. This Coffeeshop has been built
 
 
 ## DESIGN EVOLUTION
+
+### First Idea
+
+At the beginning, I wanted to create a card for each product, so the user would be able to see all the items, but I changed it as a simple image with few details in case if the customer was interested in a specific product would be able to click to search for more details.
+
+<img src="static/images/first-design.png">
+
+### Products Design
+
+While creating the database, I considered that it might be challenging to locate identical images for various types of coffees. So I used the same images, created the logos by myself and replaced on the top of each one. If you are interested in knowing where I found the logos, you will find them in *Credits* at the bottom.
+
+**Logo Design**
+
+<img src="static/images/logo.png">
+
+**Home Page Background Image Design**
+
+<img src="media/coffee.jpg">
+
+**Coffee Beans Design**
+
+<img src="media/beans-brazil.jpg">
+<img src="media/beans-colombia.jpg">
+<img src="media/beans-guatemala.jpg">
+
+**Dark Coffee Design**
+
+<img src="media/dark-espresso-decaf.jpg">
+<img src="media/dark-espresso.jpg">
+<img src="media/dark-sumatra.jpg">
+<img src="media/dark-verona.jpg">
+
+**Medium Coffee Design**
+
+<img src="media/medium-colombia-narino.jpg">
+<img src="media/medium-ethiopia.jpg">
+<img src="media/medium-guatemala-antigua.jpg">
+<img src="media/medium-guatemala-cielo.jpg">
+<img src="media/medium-houseblend.jpg">
+<img src="media/medium-kenya.jpg">
+<img src="media/medium-pikeplace.jpg">
+
+**Coffee Mugs Design**
+
+<img src="media/mug-coffee.jpg">
+<img src="media/mug-logo.jpg">
+<img src="media/mug-rainbow.jpg">
+<img src="media/mug-sarcasm.jpg">
+
+**Coffee T-shirts Design**
+
+<img src="media/tshirt-man.jpg">
+<img src="media/tshirt-woman.jpg">
+
+**No Image**
+
+<img src="media/noimage.png">
 
 
 ## TESTING 
